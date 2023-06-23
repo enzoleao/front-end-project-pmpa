@@ -5,7 +5,8 @@ import api from '@/services/api';
 
 export function CointsCard (props: any) {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [value, setValue] = useState(1);
+    const [value, setValue] = useState(0);
+    const [form] = Form.useForm();
   const showModal = () => {
     setIsModalOpen(true);
   };
@@ -19,7 +20,9 @@ export function CointsCard (props: any) {
             dataValues
         })
         props.setCoints(response.data)
-        console.log(response)
+        form.resetFields()
+        setValue(0)
+        setIsModalOpen(false)
     }catch(err){
         console.log(err)
         
@@ -38,6 +41,7 @@ export function CointsCard (props: any) {
             </Card>
             <Modal width={1000} style={{maxWidth: 'none'}} footer={false} title={props.name} open={isModalOpen} onCancel={handleCancel}>
                 <Form
+                    form={form}
                     onFinish={handleSumbit}
                     layout='vertical'
                     name="basic"
