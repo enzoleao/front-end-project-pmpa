@@ -12,3 +12,6 @@ input[type=number] {
  appearance: textfield;
 
 }
+* {
+  font-family: 'Poppins', sans-serif;
+}

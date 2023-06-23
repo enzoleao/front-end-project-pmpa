@@ -12,6 +12,8 @@ export function CointsCard (props: any) {
   };
 
   const handleCancel = () => {
+    form.resetFields()
+        setValue(0)
     setIsModalOpen(false);
   };
   const handleSumbit = async (dataValues: any) => {
@@ -39,7 +41,7 @@ export function CointsCard (props: any) {
                     </button>
                 </div>
             </Card>
-            <Modal   wrapClassName={styles.wrapperTeste} width={1000} style={{maxWidth: 'none', padding: 0, color:'#fff'}} footer={false} title={props.name} open={isModalOpen} onCancel={handleCancel}>
+            <Modal   wrapClassName={styles.wrapperTeste} width={1000} style={{maxWidth: 'none', padding: 0, color:'#fff', fontFamily:'Poppins'}} footer={false} title={props.name} open={isModalOpen} onCancel={handleCancel}>
                 <Form
                     form={form} 
                     onFinish={handleSumbit}
@@ -67,7 +69,7 @@ export function CointsCard (props: any) {
                                 {props.opms.map((i: any)=>{
                                     return (
                                     <Radio style={{display:'flex', flexDirection:'column-reverse', maxWidth: 250, gap: 5, margin:"5px"}} key={i.id} disabled={i.vacancies ===0 ? true: false} value={i.id}>
-                                        <Card style={{minWidth:250,fontSize:'38px', backgroundColor:"#2b5b93", color: "#fff", fontFamily:"Georgia"}}>
+                                        <Card style={{minWidth:250,fontSize:'38px', backgroundColor:`${i.vacancies ===0 ? '#FF0000':'#2b5b93'}`, color: "#fff", fontFamily:"Georgia"}}>
                                             <p>{i.name}</p>
                                             <p>{i.vacancies} VAGAS</p>
                                         </Card> 
