@@ -39,7 +39,7 @@ export function CointsCard (props: any) {
                     </button>
                 </div>
             </Card>
-            <Modal  width={1000} style={{maxWidth: 'none'}} footer={false} title={props.name} open={isModalOpen} onCancel={handleCancel}>
+            <Modal   wrapClassName={styles.wrapperTeste} width={1000} style={{maxWidth: 'none', padding: 0, color:'#fff'}} footer={false} title={props.name} open={isModalOpen} onCancel={handleCancel}>
                 <Form
                     form={form} 
                     onFinish={handleSumbit}
@@ -51,7 +51,7 @@ export function CointsCard (props: any) {
                     <Form.Item
                         label="RG"
                         name="rg"
-                        style={{width:'100%', backgroundColor:"#333c6b", borderTop:"1px solid"}}
+                        style={{width:'100%',color:'#fff', backgroundColor:"#333c6b", borderTop:"1px solid"}}
                         rules={[{ required: true, message: 'Por favor, insira seu RG!' }]}
                     >
                         <Input />
