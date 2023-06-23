@@ -14,10 +14,16 @@ export function CointsCard (props: any) {
     setIsModalOpen(false);
   };
   const handleSumbit = async (dataValues: any) => {
-    const response = await api.put(`/polices/${dataValues.rg}`,{
-        dataValues
-    })
-    console.log(response)
+    try {
+        const response = await api.put(`/polices/${dataValues.rg}`,{
+            dataValues
+        })
+        props.setCoints(response.data)
+        console.log(response)
+    }catch(err){
+        console.log(err)
+        
+    }
   }
     return( 
         <>
@@ -54,7 +60,7 @@ export function CointsCard (props: any) {
                     >
                         <Card style={{width:'100%'}}>
                             <Radio.Group style={{width:'100%', display:'flex', flexWrap:'wrap', justifyContent:'center'}} value={value} onChange={(e: any)=>setValue(e.target.value)}>
-                                {props.opms.map((i)=>{
+                                {props.opms.map((i: any)=>{
                                     return (
                                     <Radio style={{display:'flex', flexDirection:'column-reverse', maxWidth: 250, gap: 5}} key={i.id} disabled={i.vacancies ===0 ? true: false} value={i.id}>
                                         <Card style={{minWidth:250}}>

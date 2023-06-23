@@ -20,7 +20,7 @@ export default function Home() {
             <div className={styles.homeContainer}>
                 {typeof coints !== 'undefined'
                  && coints.map((i: any) => {
-                    return <CointsCard key={i.id} vagas={i.vagas} name={i.name} opms={i.battalions}/>
+                    return <CointsCard key={i.id} setCoints={setCoints} vagas={i.vagas} name={i.name} opms={i.battalions}/>
                  })}
             </div>
         </div>
