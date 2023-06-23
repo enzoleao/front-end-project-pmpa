@@ -10,7 +10,6 @@ export default function Home() {
         const getAll = async() =>{
            const response =  await api.get('/coint')
            setCoints(response.data)
-           console.log(response.data)
         }
         getAll()
     }, [])
