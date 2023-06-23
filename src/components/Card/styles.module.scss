@@ -1,0 +1,9 @@
+.buttonCard, .buttonCardDisable {
+    background-color: rgb(23, 24, 66);
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 5px;
+}
+.buttonCardDisable {
+    cursor: not-allowed;
+}
