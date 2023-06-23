@@ -1,10 +1,11 @@
 .headerWrapper {
     width: 100%;
-    height: 60px;
+    height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(30, 31, 63);
+    background-color: #ffff;
+    border-bottom: 15px solid red;
     
     .headerContainer {
         max-width: 1120px;
@@ -12,5 +13,29 @@
         width: 100%;
         display: flex;
         align-items: center;
+        z-index: 1;
+        justify-content: space-between;
     }
+    .imgHeader {
+        display: inline-block;
+        height: 150px;
+        width: 120px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        justify-content: center;
+
+    }
+    .nomeHeader{
+        display: block;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-weight: bold;
+        font-size: 2rem;
+        font-style: italic;
+        text-transform: uppercase;
+        text-shadow: 5px 5px 10px gray;
+        
+
+        
+    }
+   
 }
