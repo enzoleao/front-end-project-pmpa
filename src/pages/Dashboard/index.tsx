@@ -1,5 +1,5 @@
 import type { CollapseProps } from 'antd';
-import { Collapse } from 'antd';
+import { Collapse, Table } from 'antd';
 import api from '@/services/api';
 import React, { useEffect, useState } from 'react';
 
@@ -8,40 +8,20 @@ const text = `
   Known for its loyalty and faithfulness,
   it can be found as a welcome guest in many households across the world.
 `;
-const itemsChild = [
-    {
-        key: '1',
-        label: 'This is panel header 1',
-        children: <p>{text}</p>,
-      },
-      {
-        key: '2',
-        label: 'This is panel header 2',
-        children: <p>{text}</p>,
-      },
-      {
-        key: '3',
-        label: 'This is panel header 3',
-        children: <p>{text}</p>,
-      },
+const columns = [
+  {
+    title: 'RG',
+    dataIndex: 'rg',
+    key: 'id',
+    width: '450px',
+  },
+  {
+    title: 'NOME',
+    dataIndex: 'name',
+    key: 'id',
+  },
 ]
-const items: CollapseProps['items'] = [
-  {
-    key: '1',
-    label: 'This is panel header 1',
-    children: <Collapse items={itemsChild} />,
-  },
-  {
-    key: '2',
-    label: 'This is panel header 2',
-    children: <p>{text}</p>,
-  },
-  {
-    key: '3',
-    label: 'This is panel header 3',
-    children: <p>{text}</p>,
-  },
-];
+
 
 const App: React.FC = () => {
     const [coints, setCoints] = useState<any>([])
@@ -65,25 +45,23 @@ const App: React.FC = () => {
                 key: i.id,
                 label: i.name,
                 children: (
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>GRAD</th>
-                                <th>NOME</th>
-                                <th>RG</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        {i.effective.map((i)=>{
-                            return (
-                            <tr className='flex gap-3' key={i}>
-                                <td>2 TEN</td>
-                                <td>{i.rg}</td>
-                                <td>{i.name}</td>
-                            </tr>)
-                        })}
-                        </tbody>
-                    </table>
+                  <Table
+                    rowKey="id"
+                    style={{ width: '100%' }}
+                    pagination={false}
+                    dataSource={i.effective}
+                    columns={columns}
+                  />
+ 
+                        // {i.effective.map((i)=>{
+                        //     return (
+                        //     <tr className='flex gap-3' key={i}>
+                        //         <td>2 TEN</td>
+                        //         <td>{i.rg}</td>
+                        //         <td>{i.name}</td>
+                        //     </tr>)
+                        // })}
+               
                 )
                     // <table>
                     //     {i.effective.map((i)=>{
